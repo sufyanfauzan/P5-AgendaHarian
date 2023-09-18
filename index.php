@@ -37,6 +37,7 @@ if (isset($_POST['login'])) {
     $error = true;
   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +48,7 @@ if (isset($_POST['login'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="assets/css/login-form.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
@@ -66,14 +68,23 @@ if (isset($_POST['login'])) {
       <div class="form-login">
         <br>
         <?php if (isset($error)) : ?>
-          <div style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px; border-radius: 5px; width: 50%;">
-            Username atau password yang Anda masukkan salah. Mohon coba lagi.
-          </div>
+          <script>
+            // Menampilkan pesan eror jika salah user/pw
+            Swal.fire({
+              icon: 'error',
+              title: 'Login Error',
+              text: 'Invalid username or password!',
+            });
+          </script>
         <?php endif; ?>
+
         <form action="" method="post">
           <input class="name-pw" type="text" name="username" placeholder="Username" autocomplete="off" required>
           <br><br>
           <input class="name-pw" type="password" name="password" placeholder="Password" autocomplete="off" required>
+          <br><br>
+          <input class="input-remember" type="checkbox" name="remember" id="remember" class="checkbox">
+          <label for="remember">Remember me</label>
           <br><br>
           <button type="submit" name="login">SignIn</button>
         </form>
