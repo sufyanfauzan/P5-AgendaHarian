@@ -32,10 +32,10 @@ $user = mysqli_fetch_assoc($result);
 if (isset($_POST['update_user'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $Jenis_Kelamin = $_POST['Jenis_Kelamin'];
+  $Jenis_Kelamin = $_POST['Jenis Kelamin'];
   $role = $_POST['status'];
 
-  $query_update = "UPDATE users SET username = '$username', password = '$password', Jenis_Kelamin = '$Jenis_Kelamin' role = '$role' WHERE id = $ID_Agenda";
+  $query_update = "UPDATE users SET username = '$username', password = '$password', Jenis Kelamin = '$Jenis_Kelamin' role = '$role' WHERE id = $ID_Agenda";
   $result_update = mysqli_query($conn, $query_update);
 
   if ($result_update) {
@@ -193,7 +193,7 @@ if (isset($_POST['update_user'])) {
                 </div>
                 <div class="form-group">
                   <label for="judul">Jenis Kelamin :</label>
-                  <input type="text" name="Jenis_Kelamin" value="<?= $user['Jenis Kelamin']; ?>"></input>
+                  <input type="text" name="Jenis Kelamin" value="<?= $user['Jenis Kelamin']; ?>"></input>
                 </div>
                 <div class="form-group">
                   <label for="isi_agenda">status :</label>

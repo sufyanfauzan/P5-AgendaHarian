@@ -10,11 +10,11 @@ if (!isset($_SESSION['id'])) {
 if (isset($_POST['tambah_user'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $Jenis_Kelamin = $_POST['Jenis_Kelamin'];
-    $role = $_POST['status'];
+    $Jenis_Kelamin = $_POST['Jenis Kelamin'];
+    $role = $_POST['role'];
   
     // Masukkan catatan ke dalam tabel
-    $query = "INSERT INTO users (username, password,Jenis_Kelamin, role) VALUES ('$username', '$password', '$Jenis_Kelamin', '$role')";
+    $query = "INSERT INTO users (username, password, `Jenis Kelamin`, role) VALUES ('$username', '$password', '$Jenis_Kelamin', '$role')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -160,11 +160,11 @@ if (isset($_POST['tambah_user'])) {
                         <div class="card-about">
                             <form method="post" action="">
                                 <div class="form-group">
-                                    <label for="tanggal_awal">username : </label>
+                                    <label for="username">username : </label>
                                     <input type="text" name="username" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="isi_agenda">Jenis Kelamin :</label>
+                                    <label for="Jenis Kelamin">Jenis Kelamin :</label>
                                     <select name="status" required>
                                         <option value="Laki-Laki">Laki-Laki</option>
                                         <option value="Perempuan">Perempuan</option>
@@ -174,8 +174,8 @@ if (isset($_POST['tambah_user'])) {
                                     <input type="password" name="password" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="isi_agenda">status :</label>
-                                    <select name="status" required>
+                                    <label for="role">status :</label>
+                                    <select name="role" required>
                                         <option value="admin">Admin</option>
                                         <option value="guru">guru</option>
                                     </select>
