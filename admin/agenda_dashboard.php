@@ -8,18 +8,18 @@ if (!isset($_SESSION['id'])) {
   exit();
 }
 
-$ID_User = $_SESSION['id'];
+$id = $_SESSION['id'];
 
 // Ambil data agenda dari database
-$query = "SELECT * FROM agenda WHERE id_user = $ID_User";
+$query = "SELECT * FROM users";
 $result = mysqli_query($conn, $query);
 
 // Inisialisasi array untuk menyimpan data
-$agenda = [];
+$user = [];
 
 // Ambil data ke dalam array
 while ($row = mysqli_fetch_assoc($result)) {
-  $agenda[] = $row;
+  $user[] = $row;
 }
 
 ?>
@@ -46,6 +46,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     .btn-submit:hover {
       background-color: #0056b3;
     }
+
   </style>
 </head>
 
@@ -62,13 +63,13 @@ while ($row = mysqli_fetch_assoc($result)) {
       <div class="side-menu">
         <ul>
           <li>
-            <a href="" class="active">
+            <a href="admin_dashboard.php">
               <span class="las la-home"></span>
               <small>Dashboard</small>
             </a>
           </li>
           <li>
-            <a href="agenda_dashboard.php">
+            <a href="" class="active">
               <span class="las la-book"></span>
               <small>Data User</small>
             </a>
@@ -90,7 +91,6 @@ while ($row = mysqli_fetch_assoc($result)) {
   </div>
 
   <div class="main-content">
-
     <header>
       <div class="header-content">
         <label for="menu-toggle">
@@ -106,27 +106,75 @@ while ($row = mysqli_fetch_assoc($result)) {
     </header>
     <main>
       <div class="page-header">
-        <h1>Dashboard</h1>
+        <h1>Data User</h1>
         <br>
-        <small>Home / Dashboard</small>
+        <?php if (isset($_SESSION['success_message'])) : ?>
+          <div style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; border-radius: 5px; width: 50%;">
+            <?php echo $_SESSION['success_message']; ?>
+          </div>
+          <?php unset($_SESSION['success_message']); ?>
+        <?php endif; ?>
       </div>
       <div class="page-content">
         <div class="analytics">
           <div class="card">
             <div class="card-head">
-              <h2>Selamat Datang, <b> <?= $_SESSION['nama']; ?> </b></h2>
+              <p>Admin dapat edit dan hapus data. </p>
             </div>
           </div>
         </div>
-        <div class="abouts">
-          <div class="card">
-            <div class="card-about">
-              <p>Agenda ini diperuntukkan untuk admin. Admin dapat mengubah dan menambahkan akun user.</p>
+
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="add">
+              <a href="T-agenda.php"><button>Tambah User</button></a>
+            </div>
+
+            <div class="browse">
+              <input type="search" placeholder="Search" class="record-search">
             </div>
           </div>
+
+          <div>
+            <table width="100%">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>username</th>
+                  <th>password</th>
+                  <th>Jenis Kelamin</th>
+                  <th>status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $i = 1; ?>
+                <?php foreach ($user as $use) { ?>
+                  <tr>
+                    <td><?= $i; ?></td>
+                    <td> <?= $use['username']; ?></td>
+                    <td> <?= $use['password']; ?></td>
+                    <td> <?= $use['Jenis Kelamin']; ?></td>
+                    <td> <?= $use['role']; ?></td>
+                    <td>
+                      <a href="E-agenda.php?id=<?= $use['id']; ?>"><button class="btn-submit" style="background-color: yellow;"><i class="las la-edit"></i></button></a>
+                      <a href="D-agenda.php?id=<?= $use['id']; ?>"><button class="btn-submit" style="background-color: red;"><i class="las la-trash"></i></button></a>
+                    </td>
+                  </tr>
+                  <?php $i++; ?>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
+
       </div>
-    </main>
+
+  </div>
+
+  </main>
+
   </div>
 </body>
 
