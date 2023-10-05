@@ -8,7 +8,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
     header('Location: admin/admin_dashboard.php');
     exit();
   } elseif ($_SESSION['role'] == 'guru') {
-    header('Location: guru/guru_dashboard.php');
+    $_SESSION["loggedin"] = true;
+    header('Location: guru/skrip.php');
     exit();
   }
 }
@@ -31,7 +32,7 @@ if (isset($_POST['login'])) {
     if ($row['role'] == 'admin') {
       header('Location: admin/admin_dashboard.php');
     } elseif ($row['role'] == 'guru') {
-      header('Location: guru/guru_dashboard.php');
+      header('Location: guru/skrip.php');
     }
   } else {
     $error = true;

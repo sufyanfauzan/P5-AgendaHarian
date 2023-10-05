@@ -4,7 +4,7 @@ require '../db.php';
 
 // Periksa jika pengguna tidak terautentikasi
 if (!isset($_SESSION['id'])) {
-  header('Location: ../');
+  header('Location: ../index.php');
   exit();
 }
 
