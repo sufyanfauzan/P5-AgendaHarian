@@ -132,16 +132,11 @@ if (isset($_POST['update_agenda'])) {
             </a>
           </li>
           <li>
-            <a href="T-agenda.php" class="active">
+            <a href="T-agenda.php">
               <span class="las la-plus"></span>
               <small>Buat Agenda</small>
             </a>
           </li>
-          <li>
-            <a href="">
-              <span class="las la-cog"></span>
-              <small>Pengaturan</small>
-            </a>
         </ul>
       </div>
     </div>

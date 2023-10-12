@@ -107,11 +107,6 @@ if (isset($_POST['tambah_agenda'])) {
                             <small>Buat Agenda</small>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-cog"></span>
-                            <small>Pengaturan</small>
-                        </a>
                 </ul>
             </div>
         </div>

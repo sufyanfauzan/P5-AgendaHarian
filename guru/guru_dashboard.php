@@ -79,11 +79,6 @@ while ($row = mysqli_fetch_assoc($result)) {
               <small>Buat Agenda</small>
             </a>
           </li>
-          <li>
-            <a href="">
-              <span class="las la-cog"></span>
-              <small>Pengaturan</small>
-            </a>
         </ul>
       </div>
     </div>
