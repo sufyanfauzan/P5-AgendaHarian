@@ -74,6 +74,12 @@ while ($row = mysqli_fetch_assoc($result)) {
             </a>
           </li>
           <li>
+            <a href="calender_dashboard.php">
+              <span class="las la-calendar"></span>
+              <small>Kalender</small>
+            </a>
+          </li>
+          <li>
             <a href="T-agenda.php">
               <span class="las la-plus"></span>
               <small>Buat Agenda</small>

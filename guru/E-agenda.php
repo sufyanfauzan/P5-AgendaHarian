@@ -132,6 +132,12 @@ if (isset($_POST['update_agenda'])) {
             </a>
           </li>
           <li>
+            <a href="calender_dashboard.php">
+              <span class="las la-calendar"></span>
+              <small>Kalender</small>
+            </a>
+          </li>
+          <li>
             <a href="T-agenda.php">
               <span class="las la-plus"></span>
               <small>Buat Agenda</small>
@@ -161,7 +167,7 @@ if (isset($_POST['update_agenda'])) {
       <div class="page-header">
         <h1>Agenda</h1>
         <br>
-        <small>Buat Agenda</small>
+        <small>Edit Agenda</small>
       </div>
       <div class="page-content">
         <div class="abouts">

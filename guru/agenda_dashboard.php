@@ -74,6 +74,12 @@ while ($row = mysqli_fetch_assoc($result)) {
             </a>
           </li>
           <li>
+            <a href="calender_dashboard.php">
+              <span class="las la-calendar"></span>
+              <small>Kalender</small>
+            </a>
+          </li>
+          <li>
             <a href="T-agenda.php">
               <span class="las la-plus"></span>
               <small>Buat Agenda</small>
@@ -164,7 +170,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                       ?>
                     </td>
                     <td>
-                      <a href="E-agenda.php?id_agenda=<?= $agn['id_agenda']; ?>"><button class="btn-submit" style="background-color: yellow;"><i class="las la-edit"></i></button></a>
+                      <a href="E-agenda.php?id_agenda=<?= $agn['id_agenda']; ?>"><button class="btn-submit" style="background-color: green;"><i class="las la-edit"></i></button></a>
                       <a href="D-agenda.php?id_agenda=<?= $agn['id_agenda']; ?>"><button class="btn-submit" style="background-color: red;"><i class="las la-trash"></i></button></a>
                     </td>
                   </tr>

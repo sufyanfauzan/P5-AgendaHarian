@@ -102,6 +102,12 @@ if (isset($_POST['tambah_agenda'])) {
                         </a>
                     </li>
                     <li>
+                        <a href="calender_dashboard.php">
+                            <span class="las la-calendar"></span>
+                            <small>Kalender</small>
+                        </a>
+                    </li>
+                    <li>
                         <a href="T-agenda.php" class="active">
                             <span class="las la-plus"></span>
                             <small>Buat Agenda</small>
